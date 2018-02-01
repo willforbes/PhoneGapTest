@@ -1,5 +1,17 @@
 function RefreshTeamList() {
-	var allTeams = AllTeams().then(function(results) {
+	var allTeams = AllTeams(function (result) {
+		var numRows = result.rows.length;
+		var listElement = "";
+		for (i = 0; i < numRows; i++) {
+			listElement = listElement + "<li><a href='team.html?_id=" + 
+				result.rows.item(i).id + "'>" +
+				result.rows.item(i).name + "</a></li>";
+		}
+		$("#teamListView").html(listElement);
+		$("#teamListView").listview().listview("refresh");
+	});
+	/*
+	.then(function(results) {
 		var numRows = results.total_rows;
 		var listElement = "";
 		for (i = 0; i < numRows; i++) {
@@ -12,13 +24,16 @@ function RefreshTeamList() {
 	}).catch(function (err) {
 		console.log(err);
 	});
+	*/
 };
 
 function AddTeamDialogAdd(withPlayers) {
 	var $newTeam = $("#team").val();
 	var newTeamObject = { _id:$newTeam, name:$newTeam };
 	
-	AddTeam(newTeamObject).then(function(result) {
+	AddTeam(newTeamObject);
+	/*
+	.then(function(result) {
 		if (withPlayers === true) {
 			positionArray = [ "GK", "GD", "WD", "C", "WA", "GA", "GS" ];
 			for (i = 0; i < positionArray.length; i++) {
@@ -41,6 +56,7 @@ function AddTeamDialogAdd(withPlayers) {
 	}).catch(function (err) {
 		console.log(err);
 	});
+	*/
 		
 	$("#team").val("");
 	

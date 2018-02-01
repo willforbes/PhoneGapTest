@@ -63,7 +63,7 @@ var app = {
 			//alert(db);
 		}
 		catch(err) {
-			alert(err);
+			
 		}
 		
 		/*
@@ -113,16 +113,16 @@ function RefreshCompetitionsHomePage() {
 }
 
 function RefreshTeamsHomePage() {
-	var allTeams = AllTeams().then(function(results) {
-		var numRows = results.total_rows;
+	var allTeams = AllTeams(function (results) {
+		var numRows = results.rows.length;
 		var listElement = "";
 		var awayTeamID = "";
 		for (i = 0; i < numRows; i++) {
 			listElement = listElement + "<option value=\"" + 
-				results.rows[i].doc._id + "\">" +
-				results.rows[i].doc.name + "</option>";
+				results.rows.item(i).id + "\">" +
+				results.rows.item(i).name + "</option>";
 			if (i === 1) {
-				awayTeamID = results.rows[i].doc._id;
+				awayTeamID = results.rows.item(i).id;
 			}
 		}
 		$("#homeTeamDropDown").html(listElement);
@@ -132,12 +132,17 @@ function RefreshTeamsHomePage() {
 			$("#awayTeamDropDown option[value='" + awayTeamID + "']").attr('selected', 'selected'); 
 		}
 		$("#awayTeamDropDown").selectmenu().selectmenu("refresh");
+	});
+	/*
+	
 	}).catch(function (err) {
 		console.log(err);
 	});
+	*/
 }
 
 $(document).on("pageshow", "#index"	, function() {
+	DatabaseSetup();
 	RefreshCompetitionsHomePage();
 	RefreshTeamsHomePage();
 });

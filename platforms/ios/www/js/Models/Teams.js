@@ -1,15 +1,29 @@
-function AllTeams() {
+function AllTeams(_callback) {
+	/*
 	var pdb = new PouchDB('teams');
 	
 	return pdb.allDocs({
 		include_docs: true,
 		attachments: true
 	});
+	*/
+	db.transaction(function(transaction) {
+		transaction.executeSql('SELECT * FROM team;', [], function(transaction, result) {
+			if (result != null && result.rows != null) {
+				_callback(result);
+				return;
+				for (var i = 0; i < result.rows.length; i++) {
+					var row = result.rows.item(i);
+				}
+				
+			}
+		}, errorHandler);
+	}, errorHandler, nullHandler);
 };
 
 function AddTeam(tm) {
 	
-	var pdb = new PouchDB('teams');
+	//var pdb = new PouchDB('teams');
 	/*
 	pdb.put(tm, function(err, response) {
 		if (err) {
@@ -19,7 +33,11 @@ function AddTeam(tm) {
 		}
 	});
 	*/
-	return pdb.put(tm);
+	//return pdb.put(tm);
+	
+	db.transaction(function(transaction) {
+		transaction.executeSql('INSERT INTO team (name) VALUES (?)',[tm.name], nullHandler,errorHandler);
+	});
 	
 };
 
