@@ -1,0 +1,26 @@
+<div data-role="page" id="home">
+	<div data-role="header">
+		<h1>Netball Stats</h1>
+	</div>
+	
+	<div role="main" class="ui-content">
+		<form id="createNewMatchForm">
+			<div style="padding:10px 20px;" class="ui-body ui-body-b">
+				<h3>New Match</h3>
+				<label for="competitionDropdown" >Competition:</label>
+				<select name="competitionDropdown" id="competitionDropdown">
+				</select>
+				<label for="homeTeamDropDown">Home Team:</label>
+				<select name="homeTeamDropDown" id="homeTeamDropDown">
+				</select>
+				<label for="awayTeamDropDown">Away Team:</label>
+				<select name="awayTeamDropDown" id="awayTeamDropDown">
+				</select>
+				</br>
+				<a data-role="button" data-icon="power" onclick="StartNewGameButtonClick()" >Start!</a>
+			</div>
+		</form>
+		
+	</div>
+
+</div>

@@ -1,0 +1,36 @@
+
+
+<div data-role="page" id="teams">
+ 
+	<div data-role="header">
+		<h1>Teams</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#addTeamPop" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="plus">Add Team</a></li>
+			</ul>
+		</div>
+		
+	</div>
+
+	<div role="main" class="ui-content">
+		<div>
+			<ul id="teamListView" data-inset="true">
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div data-role="popup" id="addTeamPop" data-theme="a" class="ui-corner-all" >
+		<form>
+			<div style="padding:10px 20px;">
+				<h3>Add New Team</h3>
+				<label for="un" class="ui-hidden-accessible">Name:</label>
+				<input type="text" name="team" id="team" value="" placeholder="Name" data-theme="a">
+				<button class="ui-btn ui-btn-inline ui-corner-all" onclick="AddTeamDialogAdd(false)">Add</button>
+				<button class="ui-btn ui-btn-inline ui-corner-all" onclick="AddTeamDialogAdd(true)">Add With Default Players</button>
+			</div>
+		</form>
+	</div>
+
+</div>

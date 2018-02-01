@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	</head>
+	
+	<body>
+		<h1>Logan's Page</h1>
+		<br>
+		<br>
+		<input type="text" id="input1"></input> - 
+		<input type="text" id="input2"></input> = 
+		<input type="text" id="answer1"></input>
+		<button onclick="CalcMinus()">Calculate</button>
+		<label id="mathsMinus"></label>
+		<br>
+		<br>
+		<input type="text" id="input3"></input> + 
+		<input type="text" id="input4"></input> = 
+		<input type="text" id="answer2"></input>
+		<button onclick="CalcPlus()">Calculate</button>
+		<label id="mathsAdd"></label>
+		
+		<script>
+			function CalcMinus() {
+				var logan = parseInt($("#input1").val()) - parseInt($("#input2").val());
+				var ans = parseInt($("#answer1").val());
+				if (logan - ans == 0) {
+					$("#mathsMinus").text("Yes, well done");
+				}else {
+					$("#mathsMinus").text("No");
+				}
+			};
+			
+			function CalcPlus() {
+				var logan = parseInt($("#input3").val()) + parseInt($("#input4").val());
+				var ans = parseInt($("#answer2").val());
+				if (logan - ans == 0) {
+					$("#mathsAdd").text("Yes, well done");
+				}else {
+					$("#mathsAdd").text("No");
+				}
+			};
+		</script>
+	</body>
+</html>

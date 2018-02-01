@@ -1,0 +1,63 @@
+
+
+<div data-role="page" id="competitions">
+ 
+	<div data-role="header">
+		<h1>Competitions</h1>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#addCompetitionPop" data-rel="popup" data-position-to="window" data-transition="pop" data-icon="plus">Add Competition</a></li>
+			</ul>
+		</div>
+		
+	</div>
+
+	<div role="main" class="ui-content">
+		<div>
+			<ul id="competitionListView"  data-inset="true" data-icon="edit">
+			
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div data-role="popup" id="addCompetitionPop" data-theme="a" class="ui-corner-all" >
+		<form id="addCompetitionForm">
+			<div style="padding:10px 20px;">
+				<h3>Add New Competition</h3>
+				<label for="un" class="ui-hidden-accessible">Name:</label>
+				<input type="text" name="comp" id="compNameInput" value="" placeholder="Name" data-theme="a">
+				<label for="periodSlider">Periods:</label>
+				<input type="range" name="periodSlider" id="compPeriodSlider" min="1" max="10" value="4">
+				<label for="periodDurationSlider">Period Duration:</label>
+				<input type="range" name="periodDurationSlider" id="compPeriodDurationSlider" min="1" max="60" value="15">
+				<label for="compExtraTimeSwitch">Extra Time:</label>
+				<select name="extraTimeSwitch" id="compExtraTimeSwitch" data-role="slider" data-mini="true">
+					<option value="no">No</option>
+					<option value="yes" selected="">Yes</option>
+				</select>
+				<button class="ui-btn ui-btn-inline ui-corner-all" onclick="AddCompetitionDialogAdd()">Add</button>
+			</div>
+		</form>
+	</div>
+	
+	<div data-role="popup" id="editCompetitionPop" data-theme="a" class="ui-corner-all" >
+		<form id="editCompetitionForm">
+			<div style="padding:10px 20px;">
+				<h3 id="editCompetitionPopHeading"></h3>
+				<label for="periodSlider">Periods:</label>
+				<input type="range" name="periodSlider" id="compEditPeriodSlider" min="1" max="10" value="4">
+				<label for="periodDurationSlider">Period Duration:</label>
+				<input type="range" name="periodDurationSlider" id="compEditPeriodDurationSlider" min="1" max="60" value="15">
+				<label for="compExtraTimeSwitch">Extra Time:</label>
+				<select name="extraTimeSwitch" id="compEditExtraTimeSwitch" data-role="slider" data-mini="true">
+					<option value="no">No</option>
+					<option value="yes">Yes</option>
+				</select>
+				<button class="ui-btn ui-btn-inline ui-corner-all" onclick="EditCompetitionDialogSave()">Save</button>
+			</div>
+		</form>
+	</div>
+	
+
+</div>
